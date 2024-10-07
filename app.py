@@ -7,17 +7,16 @@ import numpy as sns
 from pathlib import Path
 
 
-# Read the dataset's csv file
-df = pd.read_csv("C:\\Users\\nsuka\\PROJECT_CAR_SALE\\vehicles_us.csv")
-df.info()
 
-file_path = Path("c:/users/nsuka/PROJECT_CAR_SALE/vehicles_us.csv")
+
+
+file_path = Path('vehicles_us.csv')
+
 if file_path.exists():
     df = pd.read_csv(file_path)
     print("File loaded successfully!")
 else:
     print("File does NOT exist.")
-
 df.head()
 
 
