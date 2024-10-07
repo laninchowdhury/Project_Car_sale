@@ -28,9 +28,9 @@ Clone the repository to my local machine.
 Create and activate a virtual environment.
 Install the required libraries using pip.
 Run the Streamlit app and open it in my browser. Merged updates from 'origin/main' into 'main' to incorporate the latest changes. You can now view your Streamlit app in your browser.
-https://github.com/laninchowdhury/Project_Car_sale.git
+[https://github.com/laninchowdhury/Project_Car_sale.git](https://project-car-sale-3.onrender.com)
 
 ## Live Application
 
 Check out the live application hosted on Render: Render App
-https://github.com/laninchowdhury/Project_Car_sale.git
+[https://github.com/laninchowdhury/Project_Car_sale.git](https://project-car-sale-3.onrender.com)
