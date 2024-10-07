@@ -21,17 +21,26 @@ df.head()
 
 
 
+# Streamlit app
+st.header("Car Sales Analysis")
 
-# Add header
-st.header ("Car Listings Analysis")
-
-# Create a Plotly express histogram
-fig_hist = px.histogram(df, x='price', title='Price Distribution')
+# Histogram
+st.subheader("Price Distribution")
+fig_hist = px.histogram(df, x='price', nbins=10, title='Price Distribution')
 st.plotly_chart(fig_hist)
 
-# Add a scatterplot for 'price' vs 'odometer'
-fig_hist = px.scatter(df, x='odometer', y='price', color='condition', title='Price vs. Odometer by Condition')
-st.write(fig_hist)
 
-# Checkbox to show/hide trendline in scatter plot
-show_trendline = st.checkbox("Show Trendline in Scatter Plot")
+# Scatter plot with checkbox for trendline
+st.subheader("Price vs. Odometer")
+add_trendline = st.checkbox('Add trendline to scatter plot')
+fig_scatter = px.scatter(df, x='odometer', y='price', color='condition', title='Price vs. Odometer', trendline='ols' if add_trendline else None)
+st.plotly_chart(fig_scatter)
+
+
+
+# Checkbox to filter data
+if st.checkbox('Show only cars with price above $10,000'):
+    df_filtered = df[df['price'] > 10000]
+    st.write(df_filtered)
+else:
+    st.write(df)
