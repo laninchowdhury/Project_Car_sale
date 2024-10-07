@@ -7,7 +7,7 @@ import numpy as sns
 
 
 # Read the dataset's csv file
-df = pd.read_csv("C:\\Users\\nsuka\\Downloads\\vehicles_us.csv")
+df = pd.read_csv("C:\\Users\\nsuka\\PROJECT_CAR_SALE\\vehicles_us.csv")
 df.info()
 
 # Add header
