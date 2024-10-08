@@ -21,31 +21,21 @@ else:
     print("File does NOT exist.")
 df.head()
 
-st.set_page_config(page_title="Car Listing", page_icon=":bar_chart:", layout= "wide")
 
 # Header with title
-st.title(":bar_chart : Car Sales Analysis")
+st.title('Car Sales Data Analysis')
 
-# Header for sctions
-st.header('Price of Distribution')
-
-
+# Header for sections
+st.header('Price Distribution')
 
 # Histogram
-fig_hist = px.histogram(df, x='price', nbins=10, title='Price Distribution')
-st.plotly_chart(fig_hist)
+hist_fig = px.histogram(df, x='price', title='Price Distribution')
+st.plotly_chart(hist_fig)
 
-
-# Scatter plot with checkbox for trendline
+# Scatter plot section
 st.header('Price vs. Odometer')
 add_trendline = st.checkbox('Add Trendline')
 scatter_fig = px.scatter(df, x='odometer', y='price', color='condition', title='Price vs. Odometer', trendline='ols' if add_trendline else None)
 st.plotly_chart(scatter_fig)
 
-
-# Checkbox to filter data
-if st.checkbox('Show only cars with price above $10,000'):
-    df_filtered = df[df['price'] > 10000]
-    st.write(df_filtered)
-else:
-    st.write(df)
+   
