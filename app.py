@@ -5,7 +5,7 @@ import altair as alt
 import os
 import numpy as sns
 from pathlib import Path
-import statsmodels.api as sm
+
 
 
 
