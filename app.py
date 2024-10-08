@@ -20,23 +20,25 @@ else:
     print("File does NOT exist.")
 df.head()
 
+st.set_page_config(page_title="Car Listing", page_icon=":bar_chart:", layout= "wide")
+# Header with title
+st.title(":bar_chart : Car Sales Analysis")
+
+# Header for sctions
+sh.header('Price of Distribution')
 
 
-# Streamlit app
-st.header("Car Sales Analysis")
 
 # Histogram
-st.subheader("Price Distribution")
 fig_hist = px.histogram(df, x='price', nbins=10, title='Price Distribution')
 st.plotly_chart(fig_hist)
 
 
 # Scatter plot with checkbox for trendline
-st.subheader("Price vs. Odometer")
-add_trendline = st.checkbox('Add trendline to scatter plot')
-fig_scatter = px.scatter(df, x='odometer', y='price', color='condition', title='Price vs. Odometer', trendline='ols' if add_trendline else None)
-st.plotly_chart(fig_scatter)
-
+st.header('Price vs. Odometer')
+add_trendline = st.checkbox('Add Trendline')
+scatter_fig = px.scatter(df, x='odometer', y='price', color='condition', title='Price vs. Odometer', trendline='ols' if add_trendline else None)
+st.plotly_chart(scatter_fig)
 
 
 # Checkbox to filter data
