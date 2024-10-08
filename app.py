@@ -11,6 +11,7 @@ import statsmodels.api as sm
 
 
 
+
 file_path = Path('vehicles_us.csv')
 
 if file_path.exists():
