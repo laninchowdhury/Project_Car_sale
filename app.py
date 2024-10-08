@@ -22,20 +22,17 @@ else:
 df.head()
 
 
+
+# Ensure odometer is numeric and handle missing values
+df['odometer'] = pd.to_numeric(df['odometer'], errors='coerce')
+df['odometer'].fillna(df['odometer'].median(), inplace=True)
+
 # Header with title
 st.title('Car Sales Data Analysis')
-
-# Header for sections
-st.header('Price Distribution')
-
-# Histogram
-hist_fig = px.histogram(df, x='price', title='Price Distribution')
-st.plotly_chart(hist_fig)
 
 # Scatter plot section
 st.header('Price vs. Odometer')
 add_trendline = st.checkbox('Add Trendline')
-scatter_fig = px.scatter(df, x='odometer', y='price', color='condition', title='Price vs. Odometer', trendline='ols' if add_trendline else None)
+scatter_fig = px.scatter(df, x='odometer', y='price', color='condition', title='Price vs. Odometer', size='odometer', hover_data=['model'], trendline='ols' if add_trendline else None)
 st.plotly_chart(scatter_fig)
-
    
