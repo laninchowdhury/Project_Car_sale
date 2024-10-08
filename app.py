@@ -21,11 +21,12 @@ else:
 df.head()
 
 st.set_page_config(page_title="Car Listing", page_icon=":bar_chart:", layout= "wide")
+
 # Header with title
 st.title(":bar_chart : Car Sales Analysis")
 
 # Header for sctions
-sh.header('Price of Distribution')
+st.header('Price of Distribution')
 
 
 
